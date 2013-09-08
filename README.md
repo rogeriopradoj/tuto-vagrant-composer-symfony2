@@ -35,10 +35,45 @@ Wanna try?
 So, if you wanna try, do the following:
 
 ```bash
-$ git clone https://github.com/rogeriopradoj/tuto-vagrant-composer-symfony2 ~/tuto-vagrant-composer-symfony2
-$ cd ~/tuto-vagrant-composer-symfony2
-$ composer install
-$ vagrant up
+<mymachine>$ git clone https://github.com/rogeriopradoj/tuto-vagrant-composer-symfony2 ~/tuto-vagrant-composer-symfony2
+<mymachine>$ cd ~/tuto-vagrant-composer-symfony2/vagrant
+<mymachine>$ vagrant plugin bundle
+    # with this you ensure that all plugins needed by Vagrant are installed
+<mymachine>$ vagrant up
+<mymachine>$ vagrant ssh
+    # now you're inside the VM
+
+<vm>$ cd /var/www/
+<vm>$ composer install
+    # answer the database_password with `root`,
+    # other questions you can just hit enter
+
+<vm>$ exit
+    # now you're back to your machine
+```
+
+After that all is ready to be tested via your prefered browser, at this address: [http://symfony2.localhost]()
+
+### Prefer a Asciicast?
+
+
+<script type="text/javascript" src="http://ascii.io/a/5349.js" id="asciicast-5349" async></script>
+
+Ascii.io: [http://ascii.io/a/5349](http://ascii.io/a/5349).
+
+I've tried, now I want to clean this mess up
+--------------------------------------------
+
+Ok, we know that we are using VM in order to don't mess our own system, right?
+So, after you tried everything, why not just clean the mess? Let's go:
+
+```bash
+<mymachine>$ cd ~/tuto-vagrant-composer-symfony2/vagrant
+<mymachine>$ vagrant destroy
+    # now your VM has gone away
+<mymachine>$ cd ~
+<mymachine>$ rm -rf ~/tuto-vagrant-composer-symfony2
+    # and now the cloned files has gone too
 ```
 
 That's it!
